@@ -15,7 +15,7 @@ class EconomieController extends Controller
     public function index()
     {
         $economies = Economie::all();
-        return view ('nosmissions.economies', compact('economies'));
+        return view ('template.nosmissions.economies', compact('economies'));
     }
 
     /**

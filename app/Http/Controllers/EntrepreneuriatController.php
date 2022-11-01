@@ -16,7 +16,7 @@ class EntrepreneuriatController extends Controller
     {
         //
         $entrepreneuriats = Entrepreneuriat::all();
-        return view ('nosmissions.entrepreneuriats', compact('entrepreneuriats'));
+        return view ('template.nosmissions.entrepreneuriats', compact('entrepreneuriats'));
     }
 
     /**

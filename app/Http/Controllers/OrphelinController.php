@@ -16,7 +16,7 @@ class OrphelinController extends Controller
     {
         //
         $orphelins = Orphelin::all();
-        return view ('nosmissions.orphelins', compact('orphelins'));
+        return view ('template.nosmissions.orphelins', compact('orphelins'));
     }
 
     /**

@@ -16,7 +16,7 @@ class MaladieController extends Controller
     {
         //
         $maladies = Maladie::all();
-        return view ('nosmissions.maladies', compact('maladies'));
+        return view ('template.nosmissions.maladies', compact('maladies'));
     }
 
     /**

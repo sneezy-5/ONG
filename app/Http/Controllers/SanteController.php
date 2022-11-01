@@ -16,7 +16,7 @@ class SanteController extends Controller
     {
         //
         $santes = Sante::all();
-        return view ('nosmissions.santes', compact('santes'));
+        return view ('template.nosmissions.santes', compact('santes'));
     }
 
     /**

@@ -15,7 +15,7 @@ class CultureController extends Controller
     public function index()
     {
         $cultures = Culture::all();
-        return view ('nosmissions.cultures', compact('culutres'));
+        return view ('template.nosmissions.cultures', compact('culutres'));
     }
 
     /**

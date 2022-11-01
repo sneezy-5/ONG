@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Apropos de nous</h1>
+    @include('template.nav')
+
+    @yield('content')
+
+    <h1>test app.blade.php</h1>
+
+    @include('template.footer')
+
 </body>
 </html>

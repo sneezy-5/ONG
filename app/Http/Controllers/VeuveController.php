@@ -16,7 +16,7 @@ class VeuveController extends Controller
     {
         //
         $veuves = Veuve::all();
-        return view ('nosmissions.veuves', compact('veuves'));
+        return view ('template.nosmissions.veuves', compact('veuves'));
     }
 
     /**

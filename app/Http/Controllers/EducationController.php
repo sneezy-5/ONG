@@ -16,7 +16,7 @@ class EducationController extends Controller
     {
         //
         $educations = Education::all();
-        return view ('nosmissions.educations', compact('educations'));
+        return view ('template.nosmissions.educations', compact('educations'));
     }
 
     /**

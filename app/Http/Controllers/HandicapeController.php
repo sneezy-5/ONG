@@ -16,7 +16,7 @@ class HandicapeController extends Controller
     {
         //
         $handicapes = Handicape::all();
-        return view ('nosmissions.handicapes', compact('handicapes'));
+        return view ('template.nosmissions.handicapes', compact('handicapes'));
     }
 
     /**

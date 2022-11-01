@@ -8,7 +8,7 @@ class AproposController extends Controller
 {
     public function index()
     {
-        return view('apropos-de-nous');
+        return view('template/apropos-de-nous');
     }
     
 }

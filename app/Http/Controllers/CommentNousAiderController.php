@@ -16,7 +16,7 @@ class CommentNousAiderController extends Controller
     {
         //
         $commentnousaider = CommentNousAider::all();
-        return view ('aide.commentnousaider', compact('commentnousaider'));
+        return view ('template/aide.commentnousaider', compact('commentnousaider'));
     }
 
     /**

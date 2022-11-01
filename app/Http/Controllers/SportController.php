@@ -16,7 +16,7 @@ class SportController extends Controller
     {
         //
         $sports = Sport::all();
-        return view ('nosmissions.sports', compact('sports'));
+        return view ('template.nosmissions.sports', compact('sports'));
     }
 
     /**

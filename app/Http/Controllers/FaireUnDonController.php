@@ -16,7 +16,7 @@ class FaireUnDonController extends Controller
     {
         //
         $faireundon = FaireUnDon::all();
-        return view ('don.faireundon', compact('faireundon'));
+        return view ('template.don.faireundon', compact('faireundon'));
     }
 
     /**
