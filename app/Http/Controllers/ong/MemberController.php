@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ong;
 
-use App\Models\Education;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EducationController extends Controller
+class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class EducationController extends Controller
     public function index()
     {
         //
-        $educations = Education::all();
-        return view ('template.nosmissions.educations', compact('educations'));
     }
 
     /**

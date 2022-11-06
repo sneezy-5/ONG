@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ong;
 
-use App\Models\Maladie;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MaladieController extends Controller
+class DonateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class MaladieController extends Controller
     public function index()
     {
         //
-        $maladies = Maladie::all();
-        return view ('template.nosmissions.maladies', compact('maladies'));
     }
 
     /**
