@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaireUnDonsTable extends Migration
+class CreateNewslettersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateFaireUnDonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('faire_un_dons', function (Blueprint $table) {
+        Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateFaireUnDonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faire_un_dons');
+        Schema::dropIfExists('newsletters');
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ong;
 
-use App\Models\Veuve;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class VeuveController extends Controller
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class VeuveController extends Controller
     public function index()
     {
         //
-        $veuves = Veuve::all();
-        return view ('template.nosmissions.veuves', compact('veuves'));
     }
 
     /**

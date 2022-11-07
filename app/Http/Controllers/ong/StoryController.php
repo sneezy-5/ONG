@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ong;
 
-use App\Models\Orphelin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OrphelinController extends Controller
+class StoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class OrphelinController extends Controller
     public function index()
     {
         //
-        $orphelins = Orphelin::all();
-        return view ('template.nosmissions.orphelins', compact('orphelins'));
     }
 
     /**
