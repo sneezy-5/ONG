@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ong;
 
 use App\Http\Controllers\Controller;
+use App\Models\Story;
 use Illuminate\Http\Request;
 
 class StoryController extends Controller
@@ -15,6 +16,8 @@ class StoryController extends Controller
     public function index()
     {
         //
+        $data['storys']= Story::all();
+        return view('template.story.index', $data);
     }
 
     /**
@@ -25,6 +28,7 @@ class StoryController extends Controller
     public function create()
     {
         //
+        return view('template.story.create');
     }
 
     /**
@@ -36,6 +40,25 @@ class StoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+
+            'type' => ['required', 'string'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'mission_name' => ['required', 'string'],
+            'mission_date' => ['required', 'string'],
+            
+        ]);
+        //create new story
+        Story::create([
+            'type' => $request->type,
+            'title' => $request->title,
+            'description' => $request->description,
+            'mission_name' => $request->mission_name,
+            'mission_date' => $request->mission_date,
+            
+        ]);
+        return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
     }
 
     /**
@@ -81,5 +104,6 @@ class StoryController extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }

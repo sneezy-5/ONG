@@ -11,7 +11,6 @@
 
     @yield('content')
 
-    <h1>test app.blade.php</h1>
 
     @include('template.footer')
 

@@ -3,6 +3,6 @@
 
 @section('content')
 
-    
+    <p>Apropos de nous </p>
 
 @endsection

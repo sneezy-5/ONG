@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\ong;
 
-use App\Http\Controllers\Controller;
+use App\Models\Don;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DonateController extends Controller
 {
@@ -25,6 +26,7 @@ class DonateController extends Controller
     public function create()
     {
         //
+        return view('template.don.create');
     }
 
     /**
@@ -36,6 +38,27 @@ class DonateController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'last_name' => ['required', 'string'],
+            'first_name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'max:255',],
+            'country' => ['required', 'string'],
+            'city' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'amount' => ['required', 'string']
+            
+        ]);
+        Don::create([
+            'last_name' => $request->last_name,
+            'first_name' => $request->first_name,
+            'email' => $request->email,
+            'country' => $request->country,
+            'city' => $request->city,
+            'address' => $request->address,
+            'amount' => $request->amount,
+            
+        ]);
+        return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
     }
 
     /**
