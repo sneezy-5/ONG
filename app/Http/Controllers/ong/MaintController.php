@@ -27,7 +27,7 @@ class MaintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function orMission()
+    public function ourMission()
     {
         //
     }
@@ -48,7 +48,7 @@ class MaintController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function howToHelp($id)
+    public function howToHelp()
     {
         //
     }
