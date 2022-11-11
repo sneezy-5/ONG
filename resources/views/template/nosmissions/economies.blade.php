@@ -3,6 +3,6 @@
 
 @section('content')
 
-    
+    <p>nos missions</p>
 
 @endsection
