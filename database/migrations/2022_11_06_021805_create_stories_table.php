@@ -17,6 +17,7 @@ class CreateStoriesTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('title');
+            $table->string('image');
             $table->string('description');
             $table->string('mission_name');
             $table->string('mission_date');
