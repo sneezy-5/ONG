@@ -1,9 +1,18 @@
 <?php
 
-use App\Http\Controllers\ong\DonateController;
-use App\Http\Controllers\ong\MemberController;
-use App\Http\Controllers\ong\NewsletterController;
-use App\Http\Controllers\ong\StoryController;
+use App\Http\Controllers\AproposController;
+use App\Http\Controllers\CommentNousAiderController;
+use App\Http\Controllers\CultureController;
+use App\Http\Controllers\EconomieController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\EntrepreneuriatController;
+use App\Http\Controllers\FaireUnDonController;
+use App\Http\Controllers\HandicapeController;
+use App\Http\Controllers\MaladieController;
+use App\Http\Controllers\OrphelinController;
+use App\Http\Controllers\SanteController;
+use App\Http\Controllers\SportController;
+use App\Http\Controllers\VeuveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,25 +91,22 @@ Route::get('/aide/commentnousaider', function(){
 });
 
 //route faire un don
-// Route::get('/don/faireundon',[DonateController::class, 'create']);
-// Route::post('/don/faireundon',[DonateController::class, 'store'])->name('dons.store');
-Route::resource("faireundon", DonateController::class);
+Route::get('/don/faireundon',[DonateController::class, 'create']);
+Route::post('/don/faireundon',[DonateController::class, 'store'])->name('dons.store');
 
 //route newsletter
+Route::get('/newsletter',[NewsletterController::class, 'create']);
+Route::post('/newsletter',[NewsletterController::class, 'store'])->name('newsletters.store');
 
-// Route::get('/newsletter',[NewsletterController::class, 'create']);
-// Route::post('/newsletter',[NewsletterController::class, 'store'])->name('newsletters.store');
-Route::resource("newsletter", NewsletterController::class);
 //route story
-// Route::get('/stories', [StoryController::class, 'index']);
-// Route::get('/stories/create', [StoryController::class, 'create']);
-// Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
-Route::resource("stories", StoryController::class);
+Route::get('/stories', [StoryController::class, 'index']);
+Route::get('/stories/create', [StoryController::class, 'create']);
+Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
 
 //route adhesion
-// Route::get('/adhesion', [MemberController::class, 'create']);
-// Route::post('/adhesion', [MemberController::class, 'store'])->name('adhesion.store');
-Route::resource("membre", MemberController::class);
+Route::get('/adhesion', [MemberController::class, 'create']);
+Route::post('/adhesion', [MemberController::class, 'store'])->name('adhesion.store');
+
 
 
 Route::get('/dashboard', function () {
