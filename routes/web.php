@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
+ 
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
+//
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -73,22 +82,25 @@ Route::get('/aide/commentnousaider', function(){
 });
 
 //route faire un don
-Route::get('/don/faireundon',[DonateController::class, 'create']);
-Route::post('/don/faireundon',[DonateController::class, 'store'])->name('dons.store');
+// Route::get('/don/faireundon',[DonateController::class, 'create']);
+// Route::post('/don/faireundon',[DonateController::class, 'store'])->name('dons.store');
+Route::resource("faireundon", DonateController::class);
 
 //route newsletter
-Route::get('/newsletter',[NewsletterController::class, 'create']);
-Route::post('/newsletter',[NewsletterController::class, 'store'])->name('newsletters.store');
 
+// Route::get('/newsletter',[NewsletterController::class, 'create']);
+// Route::post('/newsletter',[NewsletterController::class, 'store'])->name('newsletters.store');
+Route::resource("newsletter", NewsletterController::class);
 //route story
-Route::get('/stories', [StoryController::class, 'index']);
-Route::get('/stories/create', [StoryController::class, 'create']);
-Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
+// Route::get('/stories', [StoryController::class, 'index']);
+// Route::get('/stories/create', [StoryController::class, 'create']);
+// Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
+Route::resource("stories", StoryController::class);
 
 //route adhesion
-Route::get('/adhesion', [MemberController::class, 'create']);
-Route::post('/adhesion', [MemberController::class, 'store'])->name('adhesion.store');
-
+// Route::get('/adhesion', [MemberController::class, 'create']);
+// Route::post('/adhesion', [MemberController::class, 'store'])->name('adhesion.store');
+Route::resource("membre", MemberController::class);
 
 
 Route::get('/dashboard', function () {

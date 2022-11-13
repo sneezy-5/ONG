@@ -38,6 +38,8 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+
         $request->validate([
             'last_name' => ['required', 'string'],
             'first_name' => ['required', 'string'],
