@@ -26,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('template/admin/members/memeber');
+        return view('template/admin/members/member');
     }
 
     /**
@@ -38,7 +38,9 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        return redirect()->route('memebers.index');
+        //dd($data);
+        Member::create($data);
+        return redirect()->route('members.index');
     }
 
     /**
@@ -50,7 +52,7 @@ class MemberController extends Controller
     public function show($id)
     {
         $member = Member::find($id);
-        return view('template/admin/memebers/show_memeber',compact('memeber'));
+        return view('template/admin/members/show_member',compact('memeber'));
     }
 
     /**
@@ -62,7 +64,7 @@ class MemberController extends Controller
     public function edit($id)
     {
         $member = Member::find($id);
-        return view('template/admin/memebers/show_memeber',compact('member'));
+        return view('template/admin/members/edit_member',compact('member'));
     }
 
     /**
@@ -75,7 +77,7 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $data = Member::find($id)->update($request->except('_token'));
-        return redirect()->route('memebers.index');
+        return redirect()->route('members.index');
     }
 
     /**
@@ -87,6 +89,6 @@ class MemberController extends Controller
     public function destroy($id)
     {
         Member::find($id)->delete();
-        return redirect()->route('memebers.index');
+        return redirect()->route('members.index');
     }
 }

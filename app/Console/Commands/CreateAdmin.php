@@ -43,7 +43,7 @@ class CreateAdmin extends Command
             'first_name' => $this->argument('fname'),
             'last_name' => $this->argument('lname'),
             'email' => $this->argument('email'),
-            'is_admin'=>true,
+            'is_admin'=>1,
             'password' => bcrypt($this->argument('password')),
            
         ];
