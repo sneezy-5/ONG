@@ -7,9 +7,19 @@
                   <h4 class="card-title">Enregistrer une story
                   </h4>
                   <p class="card-description">
+                  @if ($errors->any())
+			<div class="alert alert-danger">
+				<ul class="list-unstyled">
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
                    FOrmulaire de story
                   </p>
-                  <form class="forms-sample">
+                  <form class="forms-sample" method="POST" action="{{route('stories.store')}}" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                       <label for="exampleSelectGender">Type de story</label>
                         <select class="form-control" id="exampleSelectGender" name="type">
@@ -18,15 +28,15 @@
                         </select>
                       </div>
                     <div class="form-group">
+                   
                       <label>Image</label>
-                      <input type="file" name="image" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
+                      <input type="file" name="image">
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">Titre de la story</label>
+                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Le tritre" name="title">
+                    </div>
+
                     <div class="form-group">
                       <label for="exampleInputCity1">Nom de la mission</label>
                       <input type="text" class="form-control" id="exampleInputCity1" placeholder="nom de la mission" name="mission_name">
@@ -40,7 +50,7 @@
                       <textarea class="form-control" id="exampleTextarea1" rows="4" name="description"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Envoyer</button>
-                    <button class="btn btn-light">Annuler</button>
+                    <button class="btn btn-light"><a href="{{route('stories.index')}}">Annuler</a></button>
                   </form>
                 </div>
               </div>

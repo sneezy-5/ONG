@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('image')->default('1.png')->nullable();
             $table->string('email')->unique();
             $table->boolean('is_admin')->default(0);
-            $table->boolean('is_donor')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

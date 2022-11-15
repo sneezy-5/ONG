@@ -16,7 +16,7 @@ class DonController extends Controller
     public function index()
     {
         $dons = Don::all();
-        return view('template/admin/dons/don',compact('dons'));
+        return view('template/admin/dons/dons',compact('dons'));
     }
 
     /**
