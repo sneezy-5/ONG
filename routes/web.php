@@ -9,10 +9,6 @@ use App\Http\Controllers\EntrepreneuriatController;
 use App\Http\Controllers\FaireUnDonController;
 use App\Http\Controllers\HandicapeController;
 use App\Http\Controllers\MaladieController;
-use App\Http\Controllers\ong\DonateController;
-use App\Http\Controllers\ong\MemberController;
-use App\Http\Controllers\ong\NewsletterController;
-use App\Http\Controllers\ong\StoryController;
 use App\Http\Controllers\OrphelinController;
 use App\Http\Controllers\SanteController;
 use App\Http\Controllers\SportController;
@@ -43,59 +39,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//route apropos de nous 
-Route::get('/aproposdenous', function(){
-    return view('/template/aproposdenous');
-});
-
-////debut des routes du menu deroulant nos missions
-
-// route culture
-Route::get('/nosmissions/cultures', function(){
-    return view('/template/nosmissions/cultures');
-});
-// route economie
-Route::get('/nosmissions/economies', function(){
-    return view('/template/nosmissions/economies');
-});
-// route education
-Route::get('/nosmissions/educations', function(){
-    return view('/template/nosmissions/educations');
-});
-// route social
-Route::get('/nosmissions/social', function(){
-    return view('/template/nosmissions/social');
-});
-//route sante
-Route::get('/nosmissions/santes', function(){
-    return view('/template/nosmissions/santes');
-});
-
-// Route sport 
-Route::get('/nosmissions/sports', function(){
-    return view('/template/nosmissions/sports');
-});
-//// fin des routes du menu deroulant de nos missions
-
-
-////debut des routes du menu deroulant comment nous aider ?
-
-//route faire un don
-Route::resource('faireundon', DonateController::class)->except([
-    'create', 'store']);
-
-//route adhesion
-Route::resource('adhesion', MemberController::class)->except([
-    'create', 'store']);
-
-//// fin des routes du menu deroulant comment nous aider ?
-//route newsletter
-Route::resource('newsletter', NewsletterController::class)->except([
-    'create', 'store']);
-
-//route story
-Route::resource('stories', StoryController::class)->except([
-    'index','create', 'store']);
+Route::get('/nosmissions/cultures', [CultureController::class, 'index']);
+Route::get('/nosmissions/economies', [EconomieController::class, 'index']);
+Route::get('/nosmissions/educations', [EducationController::class, 'index']);
+Route::get('/nosmissions/entrepreneuriats', [EntrepreneuriatController::class, 'index']);
+Route::get('/nosmissions/handicapes', [HandicapeController::class, 'index']);
+Route::get('/nosmissions/maladies', [MaladieController::class, 'index']);
+Route::get('/nosmissions/orphelins', [OrphelinController::class, 'index']);
+Route::get('/nosmissions/santes', [SanteController::class, 'index']);
+Route::get('/nosmissions/sports', [SportController::class, 'index']);
+Route::get('/nosmissions/veuves', [VeuveController::class, 'index']);
+Route::get('/don/faireundon', [FaireUnDonController::class, 'index']);
+Route::get('/aide/commentnousaider', [CommentNousAiderController::class, 'index']);
+Route::get('/aproposdenous', [AproposController::class, 'index']);
 
 
 Route::get('/dashboard', function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EventRequestValidation;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -35,13 +36,32 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequestValidation $request)
     {
         $data = $request->except('_token');
+       // dd($data);
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName ();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename. ''. time().'.'.$extension;
+            // Upload Image $path = 
+            $request->file('picture')->storeAs('public/image', $fileNameToStore);
+            }
+       
+        // Else add a dummy image
+        else {
+            $fileNameToStore = 'noimage.jpg';
+            $path = 'noimage.jpg';
+            }
+            $data['picture']=$fileNameToStore;
 
         Event::create($data);
 
-        return redirect()->route('even.index');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -53,7 +73,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        return view('template/admin/events/show_event',compact($event));
+        return view('template/admin/events/show_event',compact('event'));
     }
 
     /**
@@ -65,7 +85,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        return view('template/admin/events/edit_event',compact($event));
+        return view('template/admin/events/edit_event',compact('event'));
     }
 
     /**
@@ -75,11 +95,27 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EventRequestValidation $request, $id)
     {
         $data = $request->except("_tokent");
+
+        // dd($data);
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName ();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename. ''. time().'.'.$extension;
+            // Upload Image $path = 
+            $request->file('picture')->storeAs('public/image', $fileNameToStore);
+            $data['picture']= $fileNameToStore;
+            }else{
+                $data['picture']= Event::find($id)->picture;
+            }
         Event::find($id)->update($data);
-        redirect()->route('event.index');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -91,6 +127,6 @@ class EventController extends Controller
     public function destroy($id)
     {
         Event::find($id)->delete();
-        redirect()->route('event.index');
+        return redirect()->route('events.index');
     }
 }

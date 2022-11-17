@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->id();
             $table->string('last_name');
             $table->string('first_name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('country');
             $table->string('city');
             $table->string('address')->nullable();

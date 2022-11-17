@@ -19,14 +19,15 @@
                             Titre
                           </th>
                           <th>
-                            description
+                          Nom de la mission
                           </th>
                           <th>
-                            Nom de la mission
+                          date de la mission
                           </th>
                           <th>
-                            date de la mission
+                            action
                           </th>
+              
                         </tr>
                       </thead>
                       <tbody>
@@ -39,13 +40,25 @@
                             {{$story->title}}
                           </td>
                           <td>
-                          {{$story->description}}
-                          </td>
-                          <td>
                           {{$story->mission_name}}
                           </td>
                           <td>
-                          {{$story->mission_date }}
+                          {{$story->mission_date}}
+                          </td>
+                          <td>
+                            <p>
+                            <a href="{{route('stories.edit',['story'=>$story->id])}}"><i class="fas fa-edit"  style='font-size:36px'></i></a> 
+                            <a href="{{route('stories.show',['story'=>$story->id])}}"><i class="fa fa-eye"  style='font-size:36px'></i></a>
+                            <form action="{{route('stories.destroy',['story'=>$story->id])}}" method="post">
+                              @method('delete')
+                              @csrf
+                              <button type="submit"><i class="fas fa-trash-alt" style='font-size:36px;color:red'></i></button>
+                            </form>
+                         
+                            
+                            </p>
+                
+                      
                           </td>
                         </tr>
                         @endforeach
