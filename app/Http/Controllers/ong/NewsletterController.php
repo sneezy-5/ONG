@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ong;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsletterRequestValidation;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class NewsletterController extends Controller
     public function create()
     {
         //
-        return view('template.newsletter');
+        return view('template.newsletter.create');
     }
 
     /**
@@ -35,15 +36,13 @@ class NewsletterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsletterRequestValidation $request)
     {
         //
-        $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255'],
-        ]);
+        $validated = $request->validated();
 
         Newsletter::create([
-            'email' => $request->email,
+            $validated
         ]);
         return redirect()->route('/')->with('success', 'Votre abonnement a été effectué avec succès');
     }

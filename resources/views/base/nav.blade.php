@@ -11,10 +11,10 @@
               <ul class="top-ul right chevron">
                 <!-- <li><a href="/">Acceuil</a></li> -->
                 <!-- <li><a href="about-us.html">About Us</a></li> -->
-                <li><a href="../nosmissions/economies">NOS MISSIONS</a></li>
-                <li><a href="../aproposdenous">APROPOS DE NOUS</a></li>
-                <li><a href="../aide/commentnousaider">COMMENT NOUS AIDER ?</a></li>
-                <li><a href="../don/faireundon">FAIRE UN DON MAINTENANT</a></li>
+                <li><a href="/nosmissions/economies">NOS MISSIONS</a></li>
+                <li><a href="/aproposdenous">APROPOS DE NOUS</a></li>
+                <li><a href="/commentnousaider/adhesion/create">COMMENT NOUS AIDER ?</a></li>
+                <li><a href="/commentnousaider/faireundon/create">FAIRE UN DON MAINTENANT</a></li>
               </ul>
            </div>
         </nav>

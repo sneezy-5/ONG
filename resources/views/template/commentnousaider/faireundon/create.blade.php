@@ -1,9 +1,5 @@
-@extends('template.app')
 
-
-@section('content')
-
-    <form action="{{ route('dons.store')}}" method="post">
+    <form action="{{ route('faireundon.store')}}" method="post">
         @csrf
         <div>
             <input type="text" name="" id="" placeholder="nom">
@@ -13,5 +9,3 @@
         </div>
         <input type="button" value="valider">
     </form>
-
-@endsection

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\ong;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\StorieRequestController;
+use App\Http\Requests\StorieRequestValidation;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
@@ -37,26 +39,16 @@ class StoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorieRequestValidation $request)
     {
-        //
-        $request->validate([
-
-            'type' => ['required', 'string'],
-            'title' => ['required', 'string'],
-            'description' => ['required', 'string'],
-            'mission_name' => ['required', 'string'],
-            'mission_date' => ['required', 'string'],
-            
-        ]);
+        // The incoming request is valid...
+ 
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+  
         //create new story
         Story::create([
-            'type' => $request->type,
-            'title' => $request->title,
-            'description' => $request->description,
-            'mission_name' => $request->mission_name,
-            'mission_date' => $request->mission_date,
-            
+          $validated
         ]);
         return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
     }
