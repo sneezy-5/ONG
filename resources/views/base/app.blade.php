@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    @include('template.nav')
+    @include('base.nav')
 
     @yield('content')
 
 
-    @include('template.footer')
+    @include('base.footer')
 
 </body>
 </html>

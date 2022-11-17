@@ -1,8 +1,8 @@
-@extends('template.app')
+@extends('base.app')
 
 
 @section('content')
 
-    <p>nos missions</p>
-
+    
+<h1>fghjkl</h1>
 @endsection
