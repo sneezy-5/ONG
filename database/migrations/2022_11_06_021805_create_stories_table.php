@@ -17,10 +17,11 @@ class CreateStoriesTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('title');
-            $table->string('image')->nullable();
+            $table->json('image')->nullable();
             $table->string('description');
             $table->string('mission_name');
             $table->string('mission_date');
+            $table->json('video')->nullable();
             $table->timestamps();
         });
     }

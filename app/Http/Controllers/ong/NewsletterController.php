@@ -39,12 +39,10 @@ class NewsletterController extends Controller
     public function store(NewsletterRequestValidation $request)
     {
         //
-        $validated = $request->validated();
-
-        Newsletter::create([
-            $validated
-        ]);
-        return redirect()->route('/')->with('success', 'Votre abonnement a été effectué avec succès');
+        $this->validate($request,[]);
+        Newsletter::create($request->all());
+        
+        return redirect()->route('faireundon.create')->with('success', 'Votre abonnement a été effectué avec succès');
     }
 
     /**

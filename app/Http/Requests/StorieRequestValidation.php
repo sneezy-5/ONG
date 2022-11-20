@@ -30,9 +30,6 @@ class StorieRequestValidation extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255',],
             'story_one_sentence_description' => ['required', 'string'],
             'other' => ['required', 'string'],
-            'photo1' => ['required', 'string'],
-            'photo2' => ['required', 'string'],
-            'photo3' => ['required', 'string'],
 
         ];
     }

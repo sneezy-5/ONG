@@ -31,7 +31,7 @@ class DonateRequestValidation extends FormRequest
             'country' => ['required', 'string'],
             'city' => ['required', 'string'],
             'address' => ['required', 'string'],
-            'amount' => ['required', 'string']
+            'amount' => ['required', 'int']
         ];
     }
 }

@@ -39,12 +39,15 @@ class MemberController extends Controller
     public function store(MemberRequestValidation $request)
     {
   
-        $validated = $request->validated();
+        // $validated = $request->validated();
        
-        //create new member
-        Member::create([
-            $validated
-        ]);
+        // //create new member
+        // Member::create([
+        //     $validated
+        // ]);
+        $this->validate($request,[]);
+        Member::create($request->all());
+        
         return redirect()->route('/')->with('success', 'Votre adhésion a été effectuée avec succès');
 
     }

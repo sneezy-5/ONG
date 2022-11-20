@@ -39,11 +39,15 @@ class DonateController extends Controller
     public function store(DonateRequestValidation $request)
     {
         //
-        $validated = $request->validated();
+        // $validated = $request->validated();
 
-        Don::create([
-          $validated
-        ]);
+        // Don::create([
+        //   $validated
+        // ]);
+        $this->validate($request,[]);
+        
+        Don::create($request->all());
+
         return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
     }
 

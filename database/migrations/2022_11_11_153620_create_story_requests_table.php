@@ -21,9 +21,9 @@ class CreateStoryRequestsTable extends Migration
             $table->string('email');
             $table->text('story_one_sentence_description');
             $table->text('other');
-            $table->string('photo1');
-            $table->string('photo2');
-            $table->string('photo3');
+            $table->string('photo1')->nullable();
+            $table->string('photo2')->nullable();
+            $table->string('photo3')->nullable();
             $table->timestamps();
         });
     }

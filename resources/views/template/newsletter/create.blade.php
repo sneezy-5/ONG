@@ -5,10 +5,10 @@
     <form action="{{ route('newsletter.store') }}" method='POST' enctype="multipart/form-data">
         @csrf
         <div>
-            <input type="email" name="" id="" placeholder="entrer votre adresse email">
+            <input type="email" name="email" id="email" placeholder="entrer votre adresse email">
         </div>
         <div>
-            <input type="button" value="valider">
+        <input type="submit" value="Submit" class="send_btn">
         </div>
     </form>
 </div>
