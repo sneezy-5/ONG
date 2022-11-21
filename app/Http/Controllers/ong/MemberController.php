@@ -45,9 +45,29 @@ class MemberController extends Controller
         // Member::create([
         //     $validated
         // ]);
-        $this->validate($request,[]);
-        Member::create($request->all());
-        
+        $data = $request->except('_token');
+       // dd($data);
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName ();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename. ''. time().'.'.$extension;
+            // Upload Image $path = 
+            $request->file('picture')->storeAs('public/image', $fileNameToStore);
+            }
+       
+        // Else add a dummy image
+        else {
+            $fileNameToStore = 'noimage.jpg';
+            $path = 'noimage.jpg';
+            }
+            $data['picture']=$fileNameToStore;
+
+        Member::create($data);
+
         return redirect()->route('/')->with('success', 'Votre adhésion a été effectuée avec succès');
 
     }

@@ -1,56 +1,69 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('base.app')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+<section class="w-100 blocconnexion p-3 h-100 gradient-form mt-5">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-6">
+              <h1>Le Titre</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates fuga repudiandae minima iusto
+                natus ipsum,</p>
+              <img src="img/imgbanner.jpg" class="img-fluid" alt="Sample image">
             </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <form method="POST" action="{{ route('login') }}" class="formconnex">
+                @csrf
+                <div
+                  class="card-body row d-flex container-fluid flex-sm-row w-100 gap-2  align-items-center justify-content-center justify-content-lg-start">
+                  <div class="card-title text-dark h2 mb-0  col-md" style="font-weight:700;">Connectez-vous</div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3">Email</label>
+                    <input type="email" id="form3Example3" class="form-control form-control-lg champ" placeholder="Entrer votre email" />
+
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                      Veuillez Entrez un mot de passe
+                    </div>
+                    <div class="valid-feedback">
+                      Très bien
+                    </div>
+
+                  </div>
+
+                  <!-- Password input -->
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example4">Mot de passe</label>
+                    <input type="password" id="form3Example4" class="form-control form-control-lg champ"
+                      placeholder="Entrer votre mot passe" />
+
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                      Veuillez Entrez un mot de passe
+                    </div>
+                    <div class="valid-feedback">
+                      Très bien
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center">
+
+                    <a href="#!" class="text-body">Mot de pass oublier ?</a>
+                  </div>
+
+                  <div class="text-center text-lg-start mt-4 pt-2">
+                    <button type="submit" class="btn btn-primary btn-lg"
+                      style="padding-left: 2.5rem; padding-right: 2.5rem;">Connexion
+                    </button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Vous n'avez pas de compte ? <a href="#!"
+                        class="link-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscriver-vous</a></p>
+                  </div>
+
+              </form>
             </div>
+          </div>
+        </div>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+      </section>

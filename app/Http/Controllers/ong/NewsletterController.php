@@ -39,6 +39,7 @@ class NewsletterController extends Controller
     public function store(NewsletterRequestValidation $request)
     {
         //
+        // dd($request);
         $this->validate($request,[]);
         Newsletter::create($request->all());
         

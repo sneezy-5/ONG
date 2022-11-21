@@ -26,36 +26,7 @@ class StoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-        return view('template.story.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoryValidation $request)
-    {
-        // The incoming request is valid...
- 
-        // Retrieve the validated input data...
-        // $validated = $request->validated();
-  
-        //create new story
-        // Story::create([
-        //   $validated
-        // ]);
-        $this->validate($request,[]);
-
-        Story::create($request->all());
-
-        return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
-    }
-
+    
     /**
      * Display the specified resource.
      *
@@ -65,6 +36,7 @@ class StoryController extends Controller
     public function show($id)
     {
         //
+        return view();
     }
 
     /**

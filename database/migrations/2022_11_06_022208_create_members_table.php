@@ -24,6 +24,7 @@ class CreateMembersTable extends Migration
             $table->string('phone');
             $table->string('civility');
             $table->string('postal_code')->nullable();
+            $table->string('picture')->nullable();
             $table->boolean('paye')->default(0);
             $table->timestamps();
         });

@@ -10,6 +10,7 @@ use App\Http\Controllers\FaireUnDonController;
 use App\Http\Controllers\HandicapeController;
 use App\Http\Controllers\MaladieController;
 use App\Http\Controllers\ong\DonateController;
+use App\Http\Controllers\ong\EventController;
 use App\Http\Controllers\ong\MemberController;
 use App\Http\Controllers\ong\NewsletterController;
 use App\Http\Controllers\ong\StoryController;
@@ -34,9 +35,6 @@ use Illuminate\Support\Facades\Route;
 //     'index', 'show'
 // ]);
  
-// Route::resource('test', PhotoController::class)->except([
-//     'create', 'store', 'update', 'destroy'
-// ]);
 //
 
 Route::get('/', function () {
@@ -101,10 +99,15 @@ Route::resource('/commentnousaider/faireundon', DonateController::class)->only([
     'create', 'store'
 ]);
 
-// route story
+// route story (actualité)
 
-Route::resource('/stories', StoryController::class)->only([
-    'index', 'create', 'store'
+Route::resource('/story', StoryController::class)->only([
+    'index', 'show'
+]);
+
+// route evenement (activité)
+Route::resource('/events', EventController::class)->only([
+    'index', 'show'
 ]);
 
 //route newsletter
@@ -112,8 +115,8 @@ Route::resource('/newsletter', NewsletterController::class)->only([
     'create', 'store'
 ]);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/donateur', function () {
+    return view('donateur');
+})->middleware(['auth'])->name('donateur');
 
 require __DIR__.'/auth.php';

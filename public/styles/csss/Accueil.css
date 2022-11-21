@@ -1,0 +1,166 @@
+body{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+@media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+  }
+
+
+.modal-dialog{
+   max-width:800px;
+}
+
+.container{
+  background: #00000017;
+  min-width:100%!important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding:0
+}
+/**header**/
+
+
+/**header**/
+
+.headerpg{
+  box-shadow:1px 1px 20px -10px
+}
+
+/**banner**/
+
+
+
+
+.txtimg .txttop{
+  background-color: brown;
+
+}
+
+.txtimg .imgbanner{
+background-color: black;
+
+height:200px
+}
+
+
+
+.carousel-inner .carousel-item{
+  height: 700px;
+  width: 100%;
+}
+
+.carousel-inner .carousel-item:nth-child(2){
+  background:linear-gradient(to left, #00000036, #000), center/cover no-repeat url('../img/imgbanner.jpg');
+}
+
+.carousel-inner .carousel-item:nth-child(3){
+  background:linear-gradient(to left, #00000036, #000), center/cover no-repeat url('../img/2.jpg');
+  }
+
+  .carousel-inner .carousel-item:nth-child(4){
+    background:linear-gradient(to left, #00000036, #000), center/cover no-repeat url('../img/3.jpg');
+    }
+/**fin banner**/
+
+/**center**/
+
+.center{
+  width:100%;
+  background: #808080;
+  display:flex;
+  align-items:center;
+justify-content:center
+}
+
+.parentbloc0{width: 100%;background-color: #000000;display:flex;align-items:center;justify-content:center} 
+
+.parentbloc0 card{
+  background:#2196F3
+}
+.parentbloc1{width: 100%;background-color: #464646;display:flex;align-items:center;justify-content:center}
+
+.parentbloc1 .bloc{
+  height: 300px;
+  width:300px;
+  background-color: azure;
+  margin: 5px;
+}
+
+.parentbloc2{width:100%;background-color: rgb(0 0 0);}
+
+.bloc-info{
+
+  width:800px
+}
+
+.parentbloc3{
+  width: 100%;
+  background-color: rgb(70 70 70);
+  display: flex;
+  flex-direction: column;
+  }
+
+
+.parentbloc3 .infosocial{
+  background-color: #000000;
+  width: 800px;
+  display:flex;
+  justify-content:center;
+  align-items:cente;
+  
+}
+
+
+.btnflottant{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform:rotate(-90deg) translatey(50%);
+  z-index:50
+}
+
+
+.montant{
+  text-align:center;
+  margin-top:2px;
+}
+
+.montant .btnprix{
+  width: 80px;
+  font-size:14px;
+  box-shadow:1px 1px 5px 0.1px #33333370;
+  border:none
+}
+
+.btnprix:hover{
+  background:#99cfff
+}
+.montant .active{
+  background-color: #2196F3;
+  color:white;
+  box-shadow:inset 0px 0px 10px 1px #0201014d;
+  border:2px solid #dbdbdb
+}
+
+
+.sousinfo{
+  background-color:rgb(187, 21, 21);
+}
+
+.infosocial{
+  background-color: #000;
+}
+
+.infosocial .blocsocial{
+  background: #2ac80000;
+}
+
+/**fin center**/

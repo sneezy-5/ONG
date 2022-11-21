@@ -1,14 +1,8 @@
 
 
-<div class="form">
-
-    <form action="{{ route('newsletter.store') }}" method='POST' enctype="multipart/form-data">
+    <form action="{{ route('newsletter.store') }}" method='POST' enctype="multipart/form-data" class="d-flex formheader">
         @csrf
-        <div>
-            <input type="email" name="email" id="email" placeholder="entrer votre adresse email">
-        </div>
-        <div>
-        <input type="submit" value="Submit" class="send_btn">
-        </div>
+            <input class="form-control me-2 newsletterheader" name="email" type="email" placeholder="New letter">
+            <button class="btn btn-outline-success" type="submit">Envoyer</button>
+
     </form>
-</div>
