@@ -1,17 +1,17 @@
-@extends('base.app')
+@extends('base.qsnapp')
+
+@section('qsn')
 
 
-@section('content')
+ <!--CENTER-->
 
-    <!--CENTER-->
-
-  <div class="center row">
+ <div class="center row">
 
 
 <div class="card m-4 border-0" style="max-width: 900px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="img/logo.jpeg" class="img-fluid rounded-start" alt="...">
+      <img src="{{asset('styles/img/logo.jpeg')}}" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -35,58 +35,12 @@
 <a href="description.html" class="card mb-4" style="width: 40rem;text-decoration: none;">
   <h5 class="card-title text-dark  h2 m-0 mt-3" style="font-weight:700;">GADIBE RICHARD</h5>
   <footer class="blockquote-footer mt-1">Président de l'ONG <cite title="Source Title">Sourire d'Afrique</cite></footer>
-  <img src="img/président.jpg" class="card-img-top w-100" alt="...">
+  <img src="{{asset('styles/img/président.jpg')}}" class="card-img-top w-100" alt="...">
 
 
 </a>
 
 <hr>
-
-
-
-<div class="row  w-75">
-
-  <h3 class="card-title text-dark" style="text-align:center;font-weight:700">Nos membres</h3>
-
-  <div class="card m-3 mb-3 mt-3 " style="width:18rem;">
-      <img src="img/WhatsApp Image 2022-11-20 at 12.05.20.jpeg" alt="" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title text-dark fst-italic h4" style="font-weight:700;">Ouattara Yéréguedia louis willy</h5>
-        <footer class="blockquote-footer mt-1">Président de l'ONG <cite title="Source Title">Sourire d'Afrique</cite></footer>
-        
-      </div>
-    </div>
-
-    <div class="card m-3 mb-3 mt-3 " style="width:18rem;">
-      <img src="img/WhatsApp Image 2022-11-20 at 13.17.49.jpeg" alt="" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title text-dark fst-italic h4" style="font-weight:700;">Ouattara Yéréguedia louis willy</h5>
-        <footer class="blockquote-footer mt-1">Président de l'ONG <cite title="Source Title">Sourire d'Afrique</cite></footer>
-
-      </div>
-    </div>
-  
-    <div class="card m-3 mb-3 mt-3 " style="width:18rem;">
-      <img src="img/membre3.jpeg" alt="" class="card-img-top img-fluid">
-      <div class="card-body">
-        <h5 class="card-title text-dark fst-italic h4" style="font-weight:700;">Ouattara Yéréguedia louis willy</h5>
-        <footer class="blockquote-footer mt-1">Président Fondateur de l'ONG <cite title="Source Title">Sourire d'Afrique</cite></footer>
-
-      </div>
-    </div>
-
-    <div class="card m-3 mb-3 mt-3 " style="width:18rem;">
-      <img src="img/1.jpg" alt="" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title text-dark fst-italic h4" style="font-weight:700;">Ouattara Yéréguedia louis willy</h5>
-        <footer class="blockquote-footer mt-1">Président de l'ONG <cite title="Source Title">Sourire d'Afrique</cite></footer>
-      </div>
-    </div>
-    
-
-
-</div>
-
 
 </div>
 

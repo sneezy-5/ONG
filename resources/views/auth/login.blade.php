@@ -22,7 +22,7 @@
                   <!-- Email input -->
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">Email</label>
-                    <input type="email" id="form3Example3" class="form-control form-control-lg champ" placeholder="Entrer votre email" />
+                    <input type="email" name="email" :value="old('email')" required autofocus id="form3Example3" class="form-control form-control-lg champ" placeholder="Entrer votre email" />
 
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                       Veuillez Entrez un mot de passe
@@ -36,7 +36,7 @@
                   <!-- Password input -->
                   <div class="form-outline mb-3">
                     <label class="form-label" for="form3Example4">Mot de passe</label>
-                    <input type="password" id="form3Example4" class="form-control form-control-lg champ"
+                    <input type="password" name="password" required autocomplete="current-password" id="form3Example4" class="form-control form-control-lg champ"
                       placeholder="Entrer votre mot passe" />
 
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
