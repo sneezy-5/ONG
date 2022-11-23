@@ -101,15 +101,14 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('espacedonateur/images/admin.jpg')}}" alt="User Avatar">
                         </a>
-
+                        <!-- <h3 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}
+                            </span></h3> -->
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                            
+                        <p2 class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p2>
+                <p2 class="fw-light text-muted mb-0">{{auth()->user()->email}}</p2>
 
                             <form action="{{route('logout')}}" method="post">
                             @csrf

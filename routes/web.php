@@ -14,6 +14,7 @@ use App\Http\Controllers\ong\EventController;
 use App\Http\Controllers\ong\MemberController;
 use App\Http\Controllers\ong\NewsletterController;
 use App\Http\Controllers\ong\StoryController;
+use App\Http\Controllers\ong\welcomeController;
 use App\Http\Controllers\OrphelinController;
 use App\Http\Controllers\SanteController;
 use App\Http\Controllers\SportController;
@@ -37,9 +38,7 @@ use Illuminate\Support\Facades\Route;
  
 //
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [welcomeController::class, 'index'])->name('/');
 //route A propos de nous 
 Route::get('/aproposdenous', function(){
     return view('template.aproposdenous');

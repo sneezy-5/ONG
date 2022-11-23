@@ -1,96 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    
-    <!-- Bootstrapp only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!-- Bootstrapp only -->
-    <link rel="stylesheet" href="{{asset('/styles/fontawesome-free-5.14.0-web/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('styles/csss/Accueil.css')}}">
-    <title>Accueil</title>
-</head>
+@include('base.app')
 <body>
 
 
-<!---HEADER-->
-  <nav class="navbar navbar-expand-lg bg-light position-fixed w-100 headerpg" style="z-index:100">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><img src="{{asset('styles/img/logo.jpeg')}}" alt="" height="50" width="50" class="img-fluid"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Accueil.html">Home</a>
-          </li>
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Qui sommes nous ?
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="About.html">Qui sommes nous</a></li>
-              <li><a class="dropdown-item" href="#">Contactez-Nous </a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Nos Missions
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Social</a></li>
-              <li><a class="dropdown-item" href="#">Santé</a></li>
-              <li><a class="dropdown-item" href="#">Education</a></li>
-              <li><a class="dropdown-item" href="#">Culture</a></li>
-              <li><a class="dropdown-item" href="#">Sport</a></li>
-              <li><a class="dropdown-item" href="#">Socio-économique</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Nos Activités
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Nos activités</a></li>
-              <li><a class="dropdown-item" href="#">Partager une Story</a></li>
-
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Comment Nous Aider
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Donner par mois</a></li>
-              <li><a class="dropdown-item" href="{{route('adhesion.create')}}">Adhésion</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Faire un Don</a></li>
-            </ul>
-          </li>
-
-          <button class="btn btn-danger navbar-btn m-1 " type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Faites un don</button>
-          <button class="btn btn-primary m-1"><a class="dropdown-item" title="connectez-vous pour gerer votre don" href="{{route('login')}}">Connexion</a></button>
-          
-
-        </ul>
-        <form action="{{('newsletter.create')}}" class="d-flex formheader">
-          <input class="form-control me-2 newsletterheader" name ="email" type="email" placeholder="New letter">
-          <button class="btn btn-outline-success" type="submit">Envoyer</button>
-
-        </form>
-      </div>
-    </div>
-  </nav>
-
-<!--- FIN HEADER-->
+@include('base.nav')
     <div class="container">
   
    <!-- Modal -->
@@ -136,7 +48,8 @@
 <div  class="btn btn-light m-1 btnprix" data-bs-toggle="pill">25000fr</div>
 <div  class="btn btn-light m-1 btnprix" data-bs-toggle="pill">25000fr</div> 
 
-    <form action="Accueil.html" class="mt-5 m-1 justify-content-between formprixmodal">
+    <form action="{{route('faireundon.store')}}" class="mt-5 m-1 justify-content-between formprixmodal">
+      @csrf
       <div class="input-group mb-3">
         <span class="input-group-text">F CFA</span>
         <input type="number" class="form-control caseprix" aria-label="Dollar amount (with dot and two decimal places)" value="5000">
@@ -185,7 +98,7 @@
                 <h3>Inscrivez-Vous</h3>
                  <small class="m-0 p-0">pour faire un don mensuel</small>
 
-                <form action="#" class="px-md-2 mt-2 forminscrimodal">
+                <form action="" class="px-md-2 mt-2 forminscrimodal">
     
                   <div class="form-outline mb-1">
                     <label class="form-label" for="nom">Nom & prénoms</label>

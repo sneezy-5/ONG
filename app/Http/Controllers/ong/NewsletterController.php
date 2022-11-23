@@ -43,7 +43,7 @@ class NewsletterController extends Controller
         $this->validate($request,[]);
         Newsletter::create($request->all());
         
-        return redirect()->route('faireundon.create')->with('success', 'Votre abonnement a été effectué avec succès');
+        return redirect()->route('/')->with('success', 'Votre abonnement a été effectué avec succès');
     }
 
     /**
