@@ -9,6 +9,7 @@ use App\Http\Controllers\EntrepreneuriatController;
 use App\Http\Controllers\FaireUnDonController;
 use App\Http\Controllers\HandicapeController;
 use App\Http\Controllers\MaladieController;
+use App\Http\Controllers\ong\ContactController;
 use App\Http\Controllers\ong\DonateController;
 use App\Http\Controllers\ong\EventController;
 use App\Http\Controllers\ong\MemberController;
@@ -77,7 +78,7 @@ Route::get('/nosmissions/educations', function(){
 
 // route sociales
 Route::get('nosmissions/sociales', function(){
-    return view('template.nosmissions.social');
+    return view('template.nosmissions.sociales');
 });
 
 // route sports
@@ -113,9 +114,13 @@ Route::resource('/events', EventController::class)->only([
 Route::resource('/newsletter', NewsletterController::class)->only([
     'create', 'store'
 ]);
+//route contact
+Route::resource('/contact', ContactController::class)->only([
+    'index','create', 'store'
+]);
 
 Route::get('/donateur', function () {
-    return view('donateur');
+    return view('espace_donateur.donateur');
 })->middleware(['auth'])->name('donateur');
 
 require __DIR__.'/auth.php';

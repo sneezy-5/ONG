@@ -36,7 +36,8 @@ class StoryController extends Controller
     public function show($id)
     {
         //
-        return view();
+        $storys = Story::find($id);
+        return view('template/event/show',compact('storys'));
     }
 
     /**

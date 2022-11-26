@@ -63,16 +63,16 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Don</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Voir mes dons</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Profil</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Changer Mot de passe</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
@@ -112,7 +112,9 @@
 
                             <form action="{{route('logout')}}" method="post">
                             @csrf
-                            <button><i class="dropdown-item-icon mdi mdi-power text-primary me-2" style="border:none ;"></i>Déconnexion</button>
+                            <button><i class="dropdown-item-icon mdi mdi-power text-primary me-2"href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" style="border:none ;"></i>Déconnexion</button>
                             </form>
 
                         </div>
@@ -166,9 +168,9 @@
                             </div>
                         </div> -->
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            <span class="count">10</span>
                         </h4>
-                        <p class="text-light">Members online</p>
+                        <p class="text-light">Nombre de dons </p>
 
                         <div class="chart-wrapper px-0" style="height:70px;" height="70">
                             <canvas id="widgetChart1"></canvas>
@@ -196,9 +198,9 @@
                             </div>
                         </div> -->
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            <span class="count">200</span>
                         </h4>
-                        <p class="text-light">Members online</p>
+                        <p class="text-light">Sommes des dons</p>
 
                         <div class="chart-wrapper px-0" style="height:70px;" height="70">
                             <canvas id="widgetChart2"></canvas>
@@ -225,7 +227,7 @@
                             </div>
                         </div> -->
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            <span class="count">50</span>
                         </h4>
                         <p class="text-light">Members online</p>
 

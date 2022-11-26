@@ -27,5 +27,10 @@ class NewsletterRequestValidation extends FormRequest
             //
             'email' => ['required', 'string', 'email', 'max:255',]
         ];
+    }public function meassage()
+    {
+        return [
+            'email.required' => "l'email est requis"
+        ];
     }
 }

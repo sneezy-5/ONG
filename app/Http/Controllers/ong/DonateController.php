@@ -48,7 +48,7 @@ class DonateController extends Controller
         
         Don::create($request->all());
 
-        return redirect()->route('login')->with('success', 'Votre don a été effectué avec succès');
+        return redirect()->route('/')->with('success', 'Votre don a été effectué avec succès');
     }
 
     /**

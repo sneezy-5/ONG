@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\ong;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -26,6 +27,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('template.contact.conatct');
     }
 
     /**
@@ -36,7 +38,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //ajput des regles ici
+        $this->validate($request,[]);
+        
+        Contact::create($request->all());
+
+        return back()->with('success', 'Votre message a été envoyé avec succès');
     }
 
     /**
@@ -59,8 +66,6 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user=User::find($id);
-        return view('template/donateur/users/edit_user',compact('user'));
     }
 
     /**
@@ -73,9 +78,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $data =$request->except('_token');
-        User::find($id)->update($data);
-       return redirect()->route('users.index');
     }
 
     /**

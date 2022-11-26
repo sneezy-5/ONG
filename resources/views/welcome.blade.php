@@ -108,9 +108,9 @@
         recevez des informations sur nos actions et activités en remplissant la newsletter
         </p>
 
-        <form action="Accueil.html" class="formcenter ">
+        <form action="{{route('newsletter.store')}}" class="formcenter ">
           <div class="form-group d-flex flex-column flex-sm-row gap-2">
-            <input type="email"  class="form-control newslettercenter" placeholder="Newletter">
+            <input type="email" name="email" class="form-control newslettercenter" placeholder="Newletter">
             <input type="submit" value="Envoyer" class="btn btn-success ml "></input>
            </div>
         </form>

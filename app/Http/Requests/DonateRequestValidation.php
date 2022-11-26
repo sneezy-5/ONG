@@ -34,4 +34,18 @@ class DonateRequestValidation extends FormRequest
             'amount' => ['required', 'int']
         ];
     }
+
+    public function message()
+    {
+        return
+        [ 
+            'last_name.required' => "last_name est requis",
+            'first_name.required' => "first_name est requis",
+            'email.required' => "email est requis",
+            'country.required' =>"country est requis",
+            'city.required' => "city est requis",
+            'address.required' => "address est requis",
+            'amount.required' => "amount"
+        ];
+    }
 }

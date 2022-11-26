@@ -13,5 +13,7 @@
     <link rel="stylesheet" href="{{asset('/styles/fontawesome-free-5.14.0-web/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('styles/csss/Accueil.css')}}">
     <link rel="stylesheet" href="{{asset('styles/csss/About.css')}}">
-    <title>Accueil</title>
+    <link rel="stylesheet" href="{{asset('styles/csss/connexion.css')}}">
+    <title>ONG SOURIREDAFRIQUE</title>
 </head>
+<body>
