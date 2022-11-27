@@ -32,32 +32,32 @@
                           <div>
                             <p class="statistics-title">Stories</p>
                             <h3 class="rate-percentage">{{$stories}}</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                            
                           </div>
                           <div>
                             <p class="statistics-title">Dons</p>
                             <h3 class="rate-percentage">{{$dons}}</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
+                          
                           </div>
                           <div>
                             <p class="statistics-title">Evennements</p>
                             <h3 class="rate-percentage">{{$events}}</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
+                          
                           </div>
                           <div class="d-none d-md-block">
-                            <p class="statistics-title">Story request</p>
-                            <h3 class="rate-percentage">{{$storyRequests}}</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                            <p class="statistics-title">Email</p>
+                            <h3 class="rate-percentage">{{$newsletters}}</h3>
+                          
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Adhérants</p>
                             <h3 class="rate-percentage">{{$members}}</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
+                            
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Utilisateurs</p>
                             <h3 class="rate-percentage">{{$users}}</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                          
                           </div>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                                       </div>
                                       <div>
                                         <p class="text-small mb-2">Total Visitors</p>
-                                        <h4 class="mb-0 fw-bold">26.80%</h4>
+                                        <h4 class="mb-0 fw-bold">{{$visitors}}</h4>
                                       </div>
                                     </div>
                                   </div>

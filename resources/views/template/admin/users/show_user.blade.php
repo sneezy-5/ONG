@@ -2,15 +2,8 @@
 
 @section('content')
 
-
-<div class="container-fluid">
-<div class="row justify-content-center ">
-          <div class="col-md-3">
-
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
+<div class="col-12 grid-margin stretch-card ">
+        
     
               <div class="card-body">
                 <div class="tab-content">
@@ -64,9 +57,5 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    
-    </div> 
-  </div>
+   
 @endsection

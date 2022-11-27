@@ -55,7 +55,6 @@ class UserController extends Controller
         // Else add a dummy image
         else {
             $fileNameToStore = 'noimage.jpg';
-            $path = 'noimage.jpg';
             }
             $data['image']=$fileNameToStore;
         $user = User::create([

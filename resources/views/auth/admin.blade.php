@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{asset('images/logo.jpg')}}"/>
+	<link rel="icon" type="image/png" href="{{url('styles/img/logo.jpeg')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -25,7 +25,11 @@
 	
 	<div class="limiter">
 		<div class="container-login100">
-        @if ($errors->any())
+     
+			<div class="wrap-login100">
+		
+				<div class="login100-pic js-tilt" data-tilt>
+				@if ($errors->any())
 			<div class="alert alert-danger">
 				<ul class="list-unstyled">
 					@foreach ($errors->all() as $error)
@@ -34,13 +38,9 @@
 				</ul>
 			</div>
 			@endif
-			<div class="wrap-login100">
-          
-				<div class="login100-pic js-tilt" data-tilt>
-					
-                    <img src="{{asset('images/logo.jpg')}}" class="logo logo-display m-top-10" alt="IMG" >
+                    <img src="{{url('styles/img/logo.jpeg')}}" class="logo logo-display m-top-10" alt="IMG" >
 				</div>
-                
+		
                 <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                      @csrf
 					<span class="login100-form-title">
@@ -69,7 +69,7 @@
 						</button>
 					</div>
 
-					<div class="text-center p-t-12">
+					<!-- <div class="text-center p-t-12">
 						<span class="txt1">
 							Forgot
 						</span>
@@ -81,7 +81,7 @@
 						<a class="txt2" href="#">
 							Username / Password?
 						</a>
-					</div>
+					</div> -->
 
 				</form>
 			</div>

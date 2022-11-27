@@ -37,7 +37,7 @@
                             {{$event->description}}
                           </td>
                           <td>
-                          <img src="{{asset('storage/image/'.$event->picture)}}" alt="">
+                          <img src="{{asset('storage/image/'.json_decode($event->picture,true)[0])}}" alt="">
                           </td>
                           
                           <td>

@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Newsletter;
+use App\Exports\EmailExport;
+use App\Mail\AdminSendEmail;
 use Illuminate\Http\Request;
+use App\Jobs\AdminSendEmailJob;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Console\Scheduling\Event;
 
 class NewsletterController extends Controller
 {
@@ -14,7 +20,8 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
+        $newsletters = Newsletter::all();
+        return view('template/admin/newsLetter/newletters',compact('newsletters'));
     }
 
     /**
@@ -24,62 +31,31 @@ class NewsletterController extends Controller
      */
     public function create()
     {
-        //
+        return view('template/admin/newsLetter/newletter');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * send email to all user in newsletter table
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $newsletters = Newsletter::all();
+        
+        foreach($newsletters as $key=>$newletter){
+        #dd($newletter->email);
+            (new AdminSendEmail($request->subject, $request->message, $request->picture))
+            ->to($newletter->email);
+            #$newletter->email->notify(new AdminSendEmailNotification($this->subject,  $this->message, $this->picture));
+        }
+        #AdminSendEmailJob::dispatch($request->subject, $request->message,$request->picture);
+        return back()->with('sucess','send succes');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function export() 
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+       return Excel::download(new EmailExport, 'email.xlsx');
     }
 }

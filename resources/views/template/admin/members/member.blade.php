@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-6 grid-margin stretch-card">
+<div class="col d-flew justify-content-center" >
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Formulaire d'enregistrement</h4>

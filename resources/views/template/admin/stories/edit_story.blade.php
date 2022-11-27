@@ -9,7 +9,7 @@
                   <p class="card-description">
                    Formulaire de story
                   </p>
-                  <form class="forms-sample" method="POST" action="{{route('stories.update',['story'=>$story->id])}}">
+                  <form class="forms-sample" method="POST" action="{{route('stories.update',['story'=>$story->id])}}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">
@@ -22,15 +22,16 @@
                     <div class="form-group">
                    
                       <label>Image</label>
-                      <input type="file" name="image" >
-                      <!-- <input type="file" name="image" class="file-upload-default"> -->
-                      <!-- <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div> -->
+                     
+                      <input type="file" name="image[]" multiple >
+                    
                     </div>
+
+                    <div class="form-group">
+                   
+                   <label>video</label>
+                   <input type="file" name="video[]" multiple>
+                 </div>
                     <div class="form-group">
                       <label for="exampleInputCity1">Titre de la story</label>
                       <input type="text" class="form-control" id="exampleInputCity1" placeholder="Le tritre" name="title"  value="{{$story->title}}">

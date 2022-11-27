@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\StoryController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\NewsletterController;
-use App\Http\Controllers\Admin\StoryRequestController;
 use App\Http\Controllers\Auth\AdminAuthenticatedSessionController;
 
 /*
@@ -30,7 +29,7 @@ Route::namespace('Auth')->middleware('guest')->group(function(){
 });
 
 
-Route::middleware(['auth','admin'])->group(function(){
+Route::middleware(['auth','admin','visitor'])->group(function(){
    
 Route::get('/admin/dashboard',[HomeController::class, 'index'])->name('admin.dashboard');
 Route::resource('/admin/stories',StoryController::class);
@@ -38,8 +37,9 @@ Route::resource('admin/dons',DonController::class);
 Route::resource('admin/events',EventController::class);
 Route::resource('admin/users',UserController::class);
 Route::resource('admin/members',MemberController::class);
-Route::resource('admin/storyrequests',StoryRequestController::class);
-Route::resource('admin/newlsetter',NewsletterController::class);
+// Route::resource('admin/storyrequests',StoryRequestController::class);
+Route::resource('admin/newletter',NewsletterController::class);
+ Route::get('/admin/newletter_download',[NewsletterController::class, 'export'])->name('newletter.export');
 // Route::get('/admin/users',[UserController::class, 'index'])->name('users.index');
 // Route::post('/admin/users/reg',[UserController::class, 'store'])->name('users.store');
 // Route::get('/admin/users/ss',[UserController::class, 'create'])->name('users.create');
