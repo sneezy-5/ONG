@@ -39,7 +39,12 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //ajput des regles ici
-        $this->validate($request,[]);
+        $this->validate($request, [
+            'prenomNom' => 'required',
+            'email' => 'required|email',
+            'telephone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'message' => 'required',
+         ]);
         
         Contact::create($request->all());
 

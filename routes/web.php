@@ -96,7 +96,7 @@ Route::resource('commentnousaider/adhesion', MemberController::class)->only([
 // route faire un don
 
 Route::resource('/commentnousaider/faireundon', DonateController::class)->only([
-    'create', 'store'
+    'index','create', 'store'
 ]);
 
 // route story (actualité)
@@ -119,8 +119,18 @@ Route::resource('/contact', ContactController::class)->only([
     'index','create', 'store'
 ]);
 
-Route::get('/donateur', function () {
-    return view('espace_donateur.donateur');
-})->middleware(['auth'])->name('donateur');
+Route::middleware(['auth',])->group(function(){
+
+    Route::get('/dashboard', function () {
+        return view('espace_donateur.donateur');
+    })->name('dashboard');
+    
+    Route::get('/voirmesdons', function () {
+        return view('espace_donateur.don_show');
+    })->name('voirdon');
+
+});
+
+
 
 require __DIR__.'/auth.php';

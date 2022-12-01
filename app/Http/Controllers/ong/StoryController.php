@@ -17,8 +17,8 @@ class StoryController extends Controller
     public function index()
     {
         //
-        $data['storys']= Story::all();
-        return view('template.story.index', $data);
+        $storys= Story::paginate(10);
+        return view('template.story.index',compact($storys));
     }
 
     /**
