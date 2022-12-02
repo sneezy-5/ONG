@@ -68,23 +68,24 @@
           @endguest
 
           @auth
-          <button class="btn btn-primary m-1"><a class="dropdown-item" href="{{route('donateur')}}">espace donateur</a></button>
+          <button class="btn btn-primary m-1"><a class="dropdown-item" href="{{route('dashboard')}}">Espace donateur</a></button>
           @endauth
 
         </ul>
         <form action="{{route('newsletter.store')}}" method="POST" class="d-flex formheader">
             @csrf
-          <input class="form-control me-2 newsletterheader" name="email" type="email" placeholder="New letter">
-          <button class="btn btn-outline-success" type="submit">Envoyer</button>
-          @include('base.errors')
+            <input class="form-control me-2 newsletterheader" name="email" type="email" placeholder="New letter">
+            <button class="btn btn-outline-success" type="submit">Envoyer</button>
+            @include('base.errors')
 
-@if(Session::has('success'))
-<div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
-{{Session::get('success')}}
-</div>
-@endif
-</div>
+            @if(Session::has('success'))
+              <div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
+              {{Session::get('success')}}
+              </div>
+            @endif
         </form>
+      </div>
+        
        
     </div>
   </nav>
@@ -119,10 +120,11 @@
          <li class="nav-item w-50 justify-content-center">
            <a class="nav-link active " data-bs-toggle="pill" href="#home">Donner une fois</a>
          </li>
-         <li class="nav-item w-50 ">
-           <a class="nav-link text-align-center" data-bs-toggle="pill" href="#menu1">mensuel</a>
-         </li>
-
+        @guest
+          <li class="nav-item w-50 ">
+            <a class="nav-link text-align-center" data-bs-toggle="pill" href="#menu1">mensuel</a>
+          </li>
+        @endguest
        </ul>
 
 <!-- Tab panes -->
@@ -175,11 +177,11 @@
    </form>
    @include('base.errors')
 
-@if(Session::has('success'))
-<div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
-{{Session::get('success')}}
-</div>
-@endif
+  @if(Session::has('success'))
+    <div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
+    {{Session::get('success')}}
+    </div>
+  @endif
  </div>
 
 
@@ -254,9 +256,9 @@
         @include('base.errors')
 
         @if(Session::has('success'))
-        <div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
-        {{Session::get('success')}}
-        </div>
+          <div class="alert alert-success" style="text-align:center;height:auto; width:auto; font-size:15px">
+          {{Session::get('success')}}
+          </div>
         @endif
       </div>
     </div>

@@ -17,6 +17,9 @@ class DonateController extends Controller
     public function index()
     {
         //
+      
+        $donner = Don::all();
+        return view('espace_donateur/don_show',compact('donner'));
     }
 
     /**
