@@ -47,7 +47,7 @@
                           </td>
                           <td>
                             <p>
-                            <form action="{{route('dons.destroy',['don'=>$dons->id])}}" method="post">
+                            <form action="{{route('dons.destroy',['don'=>$don->id])}}" method="post">
                               @method('delete')
                               @csrf
                               <button type="submit"><i class="fas fa-trash-alt" style='font-size:36px;color:red'></i></button>

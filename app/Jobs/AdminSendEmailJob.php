@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\Newsletter;
 use App\Mail\AdminSendEmail;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -34,12 +35,24 @@ class AdminSendEmailJob implements ShouldQueue
     public function handle()
     {
         $newsletters = Newsletter::all();
+        //$data = ['subject'=>$this->subject,'message'=>$this->message,'picture'=>$this->picture];
+
+        $data = array('name'=>'Ogbonna Vitalis(sender_name)', 'body' => 'A test mail');
         foreach($newsletters as $key=>$newletter){
           
-            (new AdminSendEmail($this->subject, $this->message, $this->picture))
-            ->to($newletter->email);
+            $to_name = $newletter->email;
+            $to_email = $newletter->email;
+
+            Mail::to($to_email)->send(new AdminSendEmail($this->subject, $this->message));
+            // Mail::send('template.email.adminemail', $data, function($message) use ($to_name, $to_email) {
+            //     $message->to($to_email, $to_name)
+            //     ->subject($this->subject);
+            //     $message->from("adingranarcisse2@gmail.com",'sddsf');
+            //     });
             #$newletter->email->notify(new AdminSendEmailNotification($this->subject,  $this->message, $this->picture));
         }
       
     }
 }
+
+

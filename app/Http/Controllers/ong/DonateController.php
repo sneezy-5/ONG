@@ -19,6 +19,7 @@ class DonateController extends Controller
         //
       
         $donner = Don::all();
+        //dd($donner)
         return view('espace_donateur/don_show',compact('donner'));
     }
 

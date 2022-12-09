@@ -65,7 +65,7 @@ class StoryController extends Controller
         else {
             $fileNameToStore = 'noimage.jpg';
             $path = 'noimage.jpg';
-            $data['image']=json_encode($fileNameToStore);
+            $data['image']=json_encode([$fileNameToStore]);
             }
             
          if ($request->hasFile('video')) {
@@ -90,7 +90,7 @@ class StoryController extends Controller
                 }     // Else add a dummy image
                 else {
                     $fileNameToStore = 'novideo.jpg';
-                    $data['video']=json_encode($fileNameToStore);
+                    $data['video']=json_encode([$fileNameToStore]);
                     }
                     
        

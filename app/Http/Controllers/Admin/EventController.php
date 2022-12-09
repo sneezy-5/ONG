@@ -64,7 +64,7 @@ class EventController extends Controller
     else {
         $fileNameToStore = 'noimage.jpg';
         $path = 'noimage.jpg';
-        $data['picture']=json_encode($fileNameToStore);
+        $data['picture']=json_encode([$fileNameToStore]);
         }
 
 
@@ -90,7 +90,7 @@ class EventController extends Controller
             }     // Else add a dummy image
             else {
                 $fileNameToStore = 'novideo.jpg';
-                $data['video']=json_encode($fileNameToStore);
+                $data['video']=json_encode([$fileNameToStore]);
                 }
 
         Event::create($data);

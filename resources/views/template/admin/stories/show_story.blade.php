@@ -66,13 +66,19 @@
                       <label for="inputName" class="col-sm-2 col-form-label">Vidéo</label>
 
                         <div class="col-sm-10" >
+                        @if($video=="novideo.jpg")
+                            <p>{{$video}}</p>
+                            @else
                           <p>  <video width="500px" height="500px"
                             controls="controls"/>
-                            
-                            <source src="{{asset('storage/vidéo/'.$video)}}"
-                                type="video/mp4">
+                      
+                           
+                            <source src="{{asset('storage/vidéo/'.$video)}}" type="video/mp4">
+                           
+                         
                     </video>
                   </p>
+                  @endif
                       </div>
                     
                       </div>

@@ -8,6 +8,7 @@ use App\Mail\AdminSendEmail;
 use Illuminate\Http\Request;
 use App\Jobs\AdminSendEmailJob;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Console\Scheduling\Event;
 
@@ -43,14 +44,16 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         $newsletters = Newsletter::all();
-        
-        foreach($newsletters as $key=>$newletter){
-        #dd($newletter->email);
-            (new AdminSendEmail($request->subject, $request->message, $request->picture))
-            ->to($newletter->email);
-            #$newletter->email->notify(new AdminSendEmailNotification($this->subject,  $this->message, $this->picture));
-        }
-        #AdminSendEmailJob::dispatch($request->subject, $request->message,$request->picture);
+        #dd($newsletters[0]->email);
+
+           
+        // foreach($newsletters as $key=>$newletter){
+        // #dd($newletter->email);
+        //     (new AdminSendEmail($request->subject, $request->message, $request->picture))
+        //     ->to($newletter->email);
+        //     #$newletter->email->notify(new AdminSendEmailNotification($this->subject,  $this->message, $this->picture));
+        // }
+        AdminSendEmailJob::dispatch($request->subject, $request->message);
         return back()->with('sucess','send succes');
     }
 
@@ -59,3 +62,6 @@ class NewsletterController extends Controller
        return Excel::download(new EmailExport, 'email.xlsx');
     }
 }
+
+
+

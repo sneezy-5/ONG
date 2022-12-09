@@ -67,31 +67,4 @@
             </div>
 
             @endsection
-            <!--<div class="col-md-6">
-                        <div class="form-group">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="">
-                              Default
-                            <i class="input-helper"></i></label>
-                          </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked="">
-                              Selected
-                            <i class="input-helper"></i></label>
-                          </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" value="option3" disabled="">
-                              Disabled
-                            <i class="input-helper"></i></label>
-                          </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="optionsRadio2" id="optionsRadios4" value="option4" disabled="" checked="">
-                              Selected and disabled
-                            <i class="input-helper"></i></label>
-                          </div>
-                        </div>
-                      </div> -->
+          

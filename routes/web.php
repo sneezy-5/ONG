@@ -125,9 +125,7 @@ Route::middleware(['auth',])->group(function(){
         return view('espace_donateur.donateur');
     })->name('dashboard');
     
-    Route::get('/voirmesdons', function () {
-        return view('espace_donateur.don_show');
-    })->name('voirdon');
+    Route::get('/voirmesdons',  [DonateController::class,'index'])->name('voirdon');
 
 });
 
