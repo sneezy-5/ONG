@@ -24,46 +24,32 @@
                       </div>
                 
                       <div class="tab-pane active" id="settings">
-                      @foreach(json_decode($event->picture,true) as $picture)
 
-                      <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Image</label>
 
                         <div class="col-sm-10" >
-                          <p><img src="{{asset('storage/image/'.$picture)}}" alt="" style="width:600px; height:400px;"></p>
+                          <p><img src="{{asset('storage/image/'.$event->picture)}}" alt="" style="width:600px; height:400px;"></p>
 
                       </div>
-
-                      </div>
-
-                    @endforeach
                   </div>
                   
                   <div class="tab-pane active" id="settings">
-                      @foreach(json_decode($event->video,true) as $video)
+                     
 
                       <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Vidéo</label>
 
-                      <div class="col-sm-10" >
-                        @if($video=="novideo.jpg")
-                            <p>{{$video}}</p>
-                            @else
+     
                           <p>  <video width="500px" height="500px"
                             controls="controls"/>
                       
                            
-                            <source src="{{asset('storage/vidéo/'.$video)}}" type="video/mp4">
+                            <source src="{{asset('storage/vidéo/'.$event->video)}}" type="video/mp4">
                            
-                         
-                    </video>
-                  </p>
-                  @endif
-                      </div>
+                        
                     
                       </div>
-                      
-                      @endforeach
+                    
                   </div>
                   <!-- /.tab-pane -->
                 </div>
